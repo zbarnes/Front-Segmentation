@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%remove page number
+\pagenumbering{gobble}
+\usepackage{verbatim}
+
+% Keywords command
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Keywords---}} #1
+}
+
+\title{Automatic glacier calving front detection}
+\author{\textbf{Undergraduate Researcher:}
+Zachary Barnes, \\ \textbf{Graduate Advisor:} Andrew Hoffman,\\ \textbf{Faculty Advisor:} Knut Christianson  \\
+    %update university/dept later
+       % \small $^{1}$University of Washington \\
+       % \small $^{2}$University B \\
+}
+\date{} % Comment this line to show today's date
+
+\begin{document}
+\maketitle
+
+\begin{abstract} 
+Nearly half of the mass loss of the Antarctic ice sheet occurs through iceberg calving. Despite the importance of this process to ice-sheet mass balance, no physically-based law for calving processes has been established. Modelling iceberg calving is difficult because calving events occur over a broad range of spatiotemporal scales and the brittle failure in ice is at least partially decoupled from climate. Comparisons across a range of ice shelves demonstrate that iceberg-calving rate is proportional the rate at which ice is stretched (the along flow strain rate), but mechanisms coupled to climate, such as meltwater filled crevasses may promote more-rapid fracture and could greatly increase calving rates in a warming world. Empirically mapping calving processes typically requires slow and painstaking efforts to manually digitalize the ice front position in thousands of satellite images in order to track how the ice front changes over time. From the time series of ice-front positions, we can infer a calving rate. Our goal is to automate this procedure in order to make larger global-scale studies more tractable. To do this, we will develop an image segmentation algorithm capable of automatically digitizing the ice front from full-resolution satellite imagery (3000$\times$3000px). This image segmentation algorithm will then be applied broadly to calving fronts in Greenland and Antarctica to better understand iceberg calving at the poles.
+\end{abstract} \hspace{10pt}
+
+%TC:ignore
+\keywords{calving front; image segmentation; machine learning;  glacier calving}
+
+\begin{thebibliography}{00}
+\bibitem{b1} Yara Mohajerani, Michael Wood, Isabella Velicogna, Eric Rignot. \textit{Detection of Glacier Calving Margins with Convolutional Neural Networks: A Case Study}. Remote Sensing. 2019, 11, 74.
+
+\end{thebibliography}
+%TC:endignore
+
+
+% Word count
+%\verbatiminput{\jobname.wordcount.tex}
+
+\end{document}
