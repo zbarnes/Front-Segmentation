@@ -54,6 +54,8 @@ def getEquidistantPoints(p1, p2, step_size):
 def remove_stuff(img, pts_arr):
    """
    This function will set the pixels with coordinates in the pts_arr to 0.
+   There is also a buffer of two pixels above and below each point that
+   will be set to 0.
    
    Params
    -----------------
@@ -77,8 +79,7 @@ def remove_stuff(img, pts_arr):
         except: continue
         try:img[pts[0]+2][pts[1]+2] = 0
         except: continue
-            
-                
+                 
     return img
 
 def switch_pair(point, img):
@@ -136,6 +137,20 @@ def remove_borders(img, Lines):
     return morph
 
 def get_line_arr(distances, points):
+    """
+    Function takes lists of distances and points and returns a list 
+    of the four lines
+    
+    Params
+    -------------
+    input:
+                distances - list of interger value of distances
+                points    - list of integer values of points (x,y)
+                
+    output:
+                lines - list of the four lines
+    
+    """
     lines=[]
     for i, pts in enumerate(points):
         if i<3:
