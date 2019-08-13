@@ -1,0 +1,8 @@
+matplotlib
+skimage
+cython
+numpy
+medpy
+pillow
+OpenCV
+scipy
