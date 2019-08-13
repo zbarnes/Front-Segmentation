@@ -2,17 +2,17 @@
 
 import matplotlib.pyplot as plt
 import scipy.ndimage.filters as flt
-import helper
+import helper as h
 import numpy as np
 from skimage import morphology, img_as_bool
 import cv2
-from medpy.filter.smoothing import anisotropic_diffusion
 from PIL import Image
-Image.MAX_IMAGE_PIXELS = None
 import warnings
 import time as t
 
-warnings.filterwarnings("ignore", category=FutureWarning)
+#--------Set Max Pixels to None-----------------
+Image.MAX_IMAGE_PIXELS = None
+#-----------------------------------------------
 
 print('Starting run')
 
@@ -23,7 +23,7 @@ img = plt.imread('my.jpeg')
 #plt.imshow(img)
 
 start = t.time()
-flt_img = anisotropic_diffusion(img,niter=5)
+flt_img = h.anisotropic(img,niter=10)
 #plt.figure(figsize=(30,30))
 plt.gray()
 plt.imshow(flt_img)
