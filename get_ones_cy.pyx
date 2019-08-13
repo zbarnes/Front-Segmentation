@@ -13,7 +13,7 @@ cpdef list get_ones_fast(short [:, :] image):
         for x in range(w):
             # if pixel is 'activated' save it to list
             if(image[y,x] > 0):
-                ones.append((y,x +1))
+                ones.append((y,x))
                 
     
     # return the list of activated pixels image
