@@ -38,15 +38,18 @@ def get_points(img):
     other_lst = get_ones_cy.get_ones_fast(rotated)
     
     p1 = max(other_lst)
-    p1 = switch_pair(p1,img)
+    p1 = switch_pair(p1,im)
     
     p3 = min(other_lst)
-    p3 = switch_pair(p3,img)
+    p3 = switch_pair(p3,im)
 
     return p1,p2,p3,p4
 
 def getEquidistantPoints(p1, p2, step_size):
-    return zip(np.linspace(p1[0], p2[0], step_size+1), np.linspace(p1[1], p2[1], step_size+1))
+    x_vals = np.linspace(p1[0], p2[0], step_size+1)
+    y_vals = np.linspace(p1[1], p2[1], step_size+1)
+    line = zip(x_vals,y_vals)
+    return line
 
 
 def remove_stuff(img, pts_arr):
@@ -120,9 +123,21 @@ def get_distance(img):
     return (dist_1, dist_2,dist_3, dist_4)
 
 def remove_borders(img, Lines):
+    """
+    Params
+    -----------------------
+    input: img - np array representing image 
+           Lines - the four border lines to be removed 
+    """
     for line in Lines:
         img = remove_stuff(img, line)
     inverse = img_as_bool(rem_im)
     morph = morphology.remove_small_objects(inverse, min_size=75000)
     
     return morph
+
+
+
+TODO:
+    get_line_arr(n x 2 int array of points (x,y), 1 x n int array of distances): take in array of points and distances 
+    and get array of all four lines
