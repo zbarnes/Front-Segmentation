@@ -4,5 +4,5 @@ cython
 numpy
 medpy
 pillow
-OpenCV
+opencv-python
 scipy
