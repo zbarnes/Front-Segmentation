@@ -1,9 +1,8 @@
+import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 import pickle
 import cython
-import skimage
-import numpy as np
 from scipy.spatial import distance
 from skimage import morphology, img_as_bool, img_as_int
 from PIL import Image
