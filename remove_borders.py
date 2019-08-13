@@ -135,8 +135,14 @@ def remove_borders(img, Lines):
     
     return morph
 
-
-
-TODO:
-    get_line_arr(n x 2 int array of points (x,y), 1 x n int array of distances): take in array of points and distances 
-    and get array of all four lines
+def get_line_arr(distances, points):
+    lines=[]
+    for i, pts in enumerate(points):
+        if i<3:
+            #not yet on last line
+            lines.append(get_line(pts, points[i+1], distances[i]))
+        else:
+            # last line
+            lines.append(get_line(pts, points[i-3], distances[i]))                
+        
+    return lines
