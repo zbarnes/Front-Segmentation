@@ -16,3 +16,5 @@ with open('seg_pic', 'rb') as f:
      img = pickle.load(f)
 ```
 Run `make` in the terminal before running the border removal algorithm in order to compile the required cython code to C. Just for a sanity check, there should be a `.so` file now in the directory.
+
+Images are assumed to have little cloud coverage and small amounts of sea ice to get a contrast in water pixels and glacier pixels. Future implementations will have quality checks and assert cloud coverage be below a certain threshold.
