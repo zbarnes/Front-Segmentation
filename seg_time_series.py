@@ -6,7 +6,6 @@ import numpy as np
 from skimage import morphology, img_as_bool
 from tqdm import tqdm
 import cv2
-from medpy.filter.smoothing import anisotropic_diffusion
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 import warnings
