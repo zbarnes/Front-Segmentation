@@ -20,11 +20,9 @@ print('Starting run')
 #img = plt.imread('/home/zbarnes/Pictures/20170124_20170311_01_T2_B8.TIF')
 img = plt.imread('my.jpeg')
 
-#plt.imshow(img)
 
 start = t.time()
 flt_img = h.anisotropic(img,niter=10)
-#plt.figure(figsize=(30,30))
 plt.gray()
 plt.imshow(flt_img)
 plt.savefig('filtered_img')
@@ -38,14 +36,15 @@ img_segm = np.choose(labels, values)
 # Reshape the array as the original image
 img_segm.shape = img.shape
 print('K-means complete')
-#plt.figure(figsize=(30,30))
 plt.gray()
 plt.imshow(img_segm)
 plt.savefig('k-means_img')
 
 img_segm = img_segm.astype('uint8')
 
-show = cv2.adaptiveThreshold(img_segm,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV, 29,2)
+# adaptiveThreshold(image,thresh val,threshold algorithm,threshold type, blocksize, constant subtracted from mean)
+
+show = cv2.adaptiveThreshold(img_segm,np.max(img_segm)/2,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,17,0)
 plt.gray()
 plt.imshow(show)
 plt.savefig('thresh_img.png')
