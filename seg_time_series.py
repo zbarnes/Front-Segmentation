@@ -48,7 +48,7 @@ for i in tqdm(range(len(img_arr))):
 	plt.savefig('k-means_iter_' + str(i) + '.png')
 	img_segm = img_segm.astype('uint8')
 
-	adap_thresh = cv2.adaptiveThreshold(img_segm,np.max(img_segm)/2,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV, 17,0)
+	adap_thresh = cv2.adaptiveThreshold(img_segm,np.max(img_segm)/2,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,17,0)
 	plt.imshow(adap_thresh)
 	plt.savefig('adap_seg_iter_' + str(i) + '.png')
 	print('\nAdaptive Thresh complete')
