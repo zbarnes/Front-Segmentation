@@ -44,7 +44,7 @@ img_segm = img_segm.astype('uint8')
 
 # adaptiveThreshold(image,thresh val,threshold algorithm,threshold type, blocksize, constant subtracted from mean)
 
-show = cv2.adaptiveThreshold(img_segm,np.max(img_segm)/2,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,17,0)
+show = cv2.adaptiveThreshold(img_segm,np.max(img_segm)/2,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,17,0)
 plt.gray()
 plt.imshow(show)
 plt.savefig('thresh_img.png')
