@@ -1,7 +1,6 @@
 #!/usr/local/bin/python
 
 import matplotlib.pyplot as plt
-import scipy.ndimage.filters as flt
 import helper as h
 import numpy as np
 from skimage import morphology, img_as_bool
@@ -29,7 +28,7 @@ plt.savefig('filtered_img')
 print('\nFilter complete')
 
 # Group similar grey levels using 3 clusters
-values, labels = helper.km_clust(flt_img, 3)
+values, labels = h.km_clust(flt_img, 3)
 
 # Create the segmented array from labels and values
 img_segm = np.choose(labels, values)
