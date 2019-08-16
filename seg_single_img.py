@@ -8,16 +8,23 @@ import cv2
 from PIL import Image
 import warnings
 import time as t
+import os
 
 #--------Set Max Pixels to None-----------------
 Image.MAX_IMAGE_PIXELS = None
 #-----------------------------------------------
 
+print('Please enter the filepath for the input image: ')
+input_string = input()
+
+while os.path.exists(input_string)!=True:
+	print(input_string + ' was not a valid filepath')
+	print('Please enter a valid filepath')
+	input_string = input()
+
 print('Starting run')
 
-#img = plt.imread('/home/zbarnes/Pictures/20170108_20170311_01_T2_B8.TIF')
-#img = plt.imread('/home/zbarnes/Pictures/20170124_20170311_01_T2_B8.TIF')
-img = plt.imread('my.jpeg')
+img = plt.imread(input_string)
 
 
 start = t.time()
