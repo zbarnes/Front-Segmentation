@@ -3,15 +3,17 @@
 # Bash script to load image files to a 
 # txt file named pics to seg
 
-# update file path
-FILE="/home/usr/Pictures/*"
+# request name of folder from User
+echo -n "Please enter the name the folder containing the time series of images and hit [Enter]: "
+
+# read User input
+read FILE
 
 
-#prints only the .TIF files
-for pics in $FILE.TIF;do
+for pics in `ls $FILE`;do
 
     echo "$pics" >> pics_to_seg.txt
 
 done
 
-
+# End of script
