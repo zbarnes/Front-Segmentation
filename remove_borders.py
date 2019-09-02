@@ -131,8 +131,8 @@ def remove_borders(img, Lines):
     """
     for line in Lines:
         img = remove_stuff(img, line)
-    inverse = img_as_bool(rem_im)
-    morph = morphology.remove_small_objects(inverse, min_size=75000)
+    bool_img = img_as_bool(img)
+    morph = morphology.remove_small_objects(bool_img, min_size=75000)
     
     return morph
 
